@@ -3,18 +3,18 @@ Ball ball2;
 
 void setup(){
   size(500,400);
-  ball1 = new Ball(100,60,50, color(random(255), random(255), random(255)));
-  ball2 = new Ball(300,50,50, color(random(255), random(255), random(255)));
+  ball1 = new Ball(100,60,40, color(random(255), random(255), random(255)));
+  ball2 = new Ball(150,60,50, color(0,255,0));
   
 }
 
 void draw(){
-  ball1.update();
-  ball1.display();
-  ball2.update();
-  ball2.display();
+  background(0);
+   ball1.update();
+   ball1.display();
+   ball2.update();
+   ball2.display();
 }
-  
 
 class Ball {
   float x, y;
@@ -32,16 +32,16 @@ class Ball {
 }
   
   void update(){
-    background(0);
    x  = x + vx;
    y = y + vy;
    if(x - radius < 0 || x + radius > width){
     vx = -vx;
    }
-   if(y - radius < 0 || y + radius > width){
+   if(y - radius < 0 || y + radius > height){
      vy = -vy;
    }
   }
+  
   void display(){
     fill(col);
     ellipse(x,y,radius*2, radius*2);
